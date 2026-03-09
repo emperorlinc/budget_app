@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="tracker">
+      <h1>Monthly Budget Calc.</h1>
+
+      <div class="dashboard">
+        <div class="left-panel">
+          <div class="section-title">Add transaction</div>
+          <div class="add-form">
+            <div class="form-row">
+              <input
+                type="number"
+                id="amountInput"
+                placeholder="amount (e.g. 49.99)"
+                step="0.01"
+                min="0"
+              />
+              <select id="categorySelect">
+                <option value="income">income</option>
+                <option value="housing">housing</option>
+                <option value="food">food</option>
+                <option value="transport">transport</option>
+                <option value="entertainment">entertainment</option>
+                <option value="utilities">utilities</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <input
+                type="text"
+                id="descInput"
+                placeholder="description (e.g. subscription, groceries)"
+              />
+              <input type="date" id="dateInput" value="" />
+            </div>
+            <div class="form-row">
+              <button id="addBtn">Add entry</button>
+            </div>
+          </div>
+
+          <div class="section-title">Recent transactions</div>
+          <div id="transactionList" class="transaction-list"></div>
+          <hr />
+          <div class="income-total-wrapper">
+            <span>income total: </span>
+            <span id="incomeTotalDisplay" class="income-total">0.00</span>
+          </div>
+        </div>
+
+        <div class="right-panel">
+          <div class="card">
+            <div class="section-title">Monthly expenses by category</div>
+            <div id="chartCategories" class="chart-container"></div>
+            <hr />
+            <div class="monthly-expenses-summary">
+              <div>
+                <span>total spent:</span>
+                <strong id="totalExpenses">0.00</strong>
+              </div>
+              <div>
+                <span>net:</span>
+                <strong id="netAmount">0.00</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Budget limits</div>
+            <div id="budgetInputs" class="budget-grid"></div>
+            <div class="budget-summary" id="budgetAlert">
+              All categories under budget
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script defer src="./script.js"></script>
+  </body>
+</html>
